@@ -4,7 +4,7 @@ The source code for my link shortener, written in PHP. Does not require Javascri
 
 ## How to deploy
 
-1. Change `YOUR URL HERE` on line 21 and 22 to your host url.
+1. Change `YOUR_URL_HERE` on line 21 and 22 of `shorten.php` to your host url.
 2. Place `shortener.html` and `shorten.php` in your webserver. 
 
 ## Drawbacks

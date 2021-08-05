@@ -18,7 +18,7 @@ function getName($n) {
 };
 
 $name = getName($n);
-$myfile = fopen("{$name}.html", "w");
+$myfile = fopen("shorten/{$name}.html", "w");
 fwrite($myfile, "<html>\n<meta http-equiv=\"refresh\" content=\"0; url={$url}\">\n</meta>\n</html>");
 fclose($myfile);
 print "Your shortened URL is http://YOUR_URL_HERE/{$name}.html";

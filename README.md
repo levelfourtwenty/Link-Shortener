@@ -1,5 +1,5 @@
 # Link-Shortener
-The source code for my link shortener, written in PHP.
+The source code for my link shortener, written in PHP. Does not require Javascript.
 
 
 ## How to deploy

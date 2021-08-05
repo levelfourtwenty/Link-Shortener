@@ -1,5 +1,8 @@
 <?php
+
 $url = $_REQUEST['urlToShort'];
+
+if (substr( $url, 0, 4 ) === "http") {
 
 $n = 6;
 function getName($n) {
@@ -18,8 +21,14 @@ $name = getName($n);
 $myfile = fopen("{$name}.html", "w");
 fwrite($myfile, "<html>\n<meta http-equiv=\"refresh\" content=\"0; url={$url}\">\n</meta>\n</html>");
 fclose($myfile);
-print "Your shortened URL is https://YOUR_URL_HERE/{$name}.html";
-header('https://YOUR_URL_HERE/{$name}.html', true, 200);
+print "Your shortened URL is http://YOUR_URL_HERE/{$name}.html";
+header('http://YOUR_URL_HERE/{$name}.html', true, 200);
 die();
+}
+else {
 
+echo "Error: Invalid URL";
+header('Invalid Request URL', false, 400);
+die();
+}
 ?>

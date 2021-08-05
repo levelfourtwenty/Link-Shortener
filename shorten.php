@@ -18,7 +18,7 @@ $name = getName($n);
 $myfile = fopen("{$name}.html", "w");
 fwrite($myfile, "<html>\n<meta http-equiv=\"refresh\" content=\"0; url={$url}\">\n</meta>\n</html>");
 fclose($myfile);
-print "Your shortened URL is https://icurriculum.co/{$name}.html";
+print "Your shortened URL is https://YOUR_URL_HERE/{$name}.html";
 header('https://YOUR_URL_HERE/{$name}.html', true, 200);
 die();
 

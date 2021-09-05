@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <?php
-if (substr( $url, 0, 4 ) === "http") {
-
 $url = $_REQUEST['urlToShort'];
+
+if (substr( $url, 0, 4 ) === "http") {
+$hcaptchadata = array(
+                'secret' => "0x50642873DEa26e7b65185e109673a0744EA72203",
+                'response' => $_POST['h-captcha-response']
+                );
+
+$verify = curl_init();
+curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
+curl_setopt($verify, CURLOPT_POST, true);
+curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($hcaptchadata));
+curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($verify);
+
+$responseData = json_decode($response);
+
+if ($responseData->success) {
+
 
 $n = 6;
 function getName($n) {
@@ -25,6 +41,11 @@ fclose($myfile);
 print "<head><script src=\"https://js.hcaptcha.com/1/api.js\" async defer></script><link rel=\"stylesheet\" type=\"text/css\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\"><script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js\" integrity=\"sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo\" crossorigin=\"anonymous\"></script><script defer=\"\" src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js\" integrity=\"sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6\" crossorigin=\"anonymous\"></script><script src=\"https://code.jquery.com/jquery-3.6.0.min.js\" integrity=\"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=\" crossorigin=\"anonymous\"></script><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"><meta name=\"description\" content=\"Link Shortener.\"><link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css\"></head><nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\"><a class=\"navbar-brand\" href=\"/shortener.html\">Link Shortener</a></button></div></nav><body><div class=\"d-flex justify-content-center\"><div style=\"padding: 125px\"/><h1>URL Shortened.</h1><div style=\"padding: 10px\"/><h7>Your shortened URL is https://icurriculum.co/shorten/{$safename}.html</h7></div></body>";
 die();
 
+}
+
+else {
+print "You did not fill out the captcha correctly, please try again";
+}
 }
 
 else {

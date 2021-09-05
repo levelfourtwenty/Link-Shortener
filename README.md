@@ -8,6 +8,5 @@ The source code for my link shortener, written in PHP. Does not require Javascri
 2. Place `shortener.html` and `shorten.php` in your webserver. 
 
 ## Drawbacks
-The page that displays the shortened url looks pretty bad, I will look to improve it. 
-
-~~As of right now, I have yet to implement a restriction on empty URLs, I hope to add this feature soon.~~
+- [x] The page that displays the shortened url looks pretty bad, I will look to improve it. 
+- [x] As of right now, I have yet to implement a restriction on empty URLs, I hope to add this feature soon.

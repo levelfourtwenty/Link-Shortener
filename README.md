@@ -7,6 +7,6 @@ The source code for my link shortener, written in PHP. Does not require Javascri
 1. Change `YOUR_URL_HERE` on line 24 and 25 of `shorten.php` to your host url.
 2. Place `shortener.html` and `shorten.php` in your webserver. 
 
-## Drawbacks
-- [x] The page that displays the shortened url looks pretty bad, I will look to improve it. 
-- [x] As of right now, I have yet to implement a restriction on empty URLs, I hope to add this feature soon.
+## Todo
+- [x] Upgrade URL display page.
+- [x] Add empty URL restriction.

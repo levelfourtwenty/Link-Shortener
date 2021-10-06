@@ -3,17 +3,7 @@
 $url = $_REQUEST['urlToShort'];
 
 if (substr( $url, 0, 4 ) === "http") {
-$hcaptchadata = array(
-                'secret' => "SECRET",
-                'response' => $_POST['h-captcha-response']
-                );
 
-$verify = curl_init();
-curl_setopt($verify, CURLOPT_URL, "https://hcaptcha.com/siteverify");
-curl_setopt($verify, CURLOPT_POST, true);
-curl_setopt($verify, CURLOPT_POSTFIELDS, http_build_query($hcaptchadata));
-curl_setopt($verify, CURLOPT_RETURNTRANSFER, true);
-$response = curl_exec($verify);
 
 $responseData = json_decode($response);
 
@@ -43,10 +33,7 @@ die();
 
 }
 
-else {
-print "You did not fill out the captcha correctly, please try again";
-}
-}
+
 
 else {
 print "ERROR: Empty URL Submitted";

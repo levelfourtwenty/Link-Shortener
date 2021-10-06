@@ -4,7 +4,7 @@ $url = $_REQUEST['urlToShort'];
 
 if (substr( $url, 0, 4 ) === "http") {
 $hcaptchadata = array(
-                'secret' => "0x50642873DEa26e7b65185e109673a0744EA72203",
+                'secret' => "SECRET",
                 'response' => $_POST['h-captcha-response']
                 );
 
